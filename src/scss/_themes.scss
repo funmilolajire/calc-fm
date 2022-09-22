@@ -1,0 +1,55 @@
+@use './colors'as *;
+
+$--primary-bg: --primary-bg;
+$--secondary-bg: --secondary-bg;
+$--screen-bg: --screen-bg;
+$--primary-key-bg: --primary-key-bg;
+$--primary-key-hover: --primary-key-hover;
+$--primary-key-shadow: --primary-key-shadow;
+$--secondary-key-bg: --secondary-key-bg;
+$--secondary-key-hover: --secondary-key-hover;
+$--secondary-key-shadow: --secondary-key-shadow;
+$--tertiary-key-bg: --tertiary-key-bg;
+$--tertiary-key-hover: --tertiary-key-hover;
+$--tertiary-key-shadow: --tertiary-key-shadow;
+$--text-dark: --text-dark;
+
+$theme-dark-map: ($--primary-bg: $primary-bg-d,
+    $--secondary-bg: $secondary-bg-d,
+    $--screen-bg: $screen-bg-d,
+    $--primary-key-bg: $primary-key-bg-d,
+    $--primary-key-hover: $primary-key-hover-d,
+    $--primary-key-shadow: $primary-key-shadow-d,
+    $--secondary-key-bg: $secondary-key-bg-d,
+    $--secondary-key-hover: $secondary-key-hover-d,
+    $--secondary-key-shadow: $secondary-key-shadow-d,
+    $--tertiary-key-bg: $tertiary-key-bg-d,
+    $--tertiary-key-hover: $tertiary-key-hover-d,
+    $--tertiary-key-shadow: $tertiary-key-shadow-d,
+    $--text-dark: $text-dark-d);
+$theme-light-map: ($--primary-bg: $primary-bg-l,
+    $--secondary-bg: $secondary-bg-l,
+    $--screen-bg: $screen-bg-l,
+    $--primary-key-bg: $primary-key-bg-l,
+    $--primary-key-hover: $primary-key-hover-l,
+    $--primary-key-shadow: $primary-key-shadow-l,
+    $--secondary-key-bg: $secondary-key-bg-l,
+    $--secondary-key-hover: $secondary-key-hover-l,
+    $--secondary-key-shadow: $secondary-key-shadow-l,
+    $--tertiary-key-bg: $tertiary-key-bg-l,
+    $--tertiary-key-hover: $tertiary-key-hover-l,
+    $--tertiary-key-shadow: $tertiary-key-shadow-l,
+    $--text-dark: $text-dark-l);
+$theme-fav-map: ($--primary-bg: $primary-bg-n,
+    $--secondary-bg: $secondary-bg-n,
+    $--screen-bg: $screen-bg-n,
+    $--primary-key-bg: $primary-key-bg-n,
+    $--primary-key-hover: $primary-key-hover-n,
+    $--primary-key-shadow: $primary-key-shadow-n,
+    $--secondary-key-bg: $secondary-key-bg-n,
+    $--secondary-key-hover: $secondary-key-hover-n,
+    $--secondary-key-shadow: $secondary-key-shadow-n,
+    $--tertiary-key-bg: $tertiary-key-bg-n,
+    $--tertiary-key-hover: $tertiary-key-hover-n,
+    $--tertiary-key-shadow: $tertiary-key-shadow-n,
+    $--text-dark: $text-dark-n)

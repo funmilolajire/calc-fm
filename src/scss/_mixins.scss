@@ -1,0 +1,9 @@
+@use './themes'as *;
+
+@mixin set-theme($theme:()) {
+
+    @each $key,
+    $value in $theme {
+        #{$key}: $value;
+    }
+}
