@@ -1,4 +1,4 @@
-const toggleClass = (theme: 'dark' | 'fav' | 'light') => {
+export const toggleClass = (theme: 'dark' | 'fav' | 'light') => {
     const darkThemeControl = document.getElementById('select-dark')
     const lightThemeControl = document.getElementById('select-light')
     const favThemeControl = document.getElementById('select-fav')
@@ -9,6 +9,7 @@ const toggleClass = (theme: 'dark' | 'fav' | 'light') => {
                 control.el?.classList.add('active')
             } 
         document.documentElement.classList.value = control.theme       
+        localStorage.setItem('theme', control.theme)
         }
         else {
             if (control.el?.classList.contains('active')) {
@@ -17,7 +18,6 @@ const toggleClass = (theme: 'dark' | 'fav' | 'light') => {
         }
     })
 }
-
 export const toggleTheme = (element: HTMLElement,theme: 'dark'|'fav'|'light') => {
     element.addEventListener('click',()=>toggleClass(theme))
 }

@@ -1,5 +1,5 @@
 import './style.scss'
-import {toggleTheme} from './ts/toggle'
+import {toggleTheme, toggleClass} from './ts/toggle'
 import { onNumbersClick, onDelClick, onResetClick, onActionClick, onSubmitClick } from './ts/calc';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -11,7 +11,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <button class="toggle" id="toggle">
           <span id="select-dark"></span>
           <span id="select-light"></span>
-          <span id="select-fav" class="active"></span>
+          <span id="select-fav"></span>
         </button>
       </section>
     </header>
@@ -51,6 +51,13 @@ darkThemeControl && toggleTheme(darkThemeControl, 'dark')
 lightThemeControl && toggleTheme(lightThemeControl, 'light')
 favThemeControl && toggleTheme(favThemeControl, 'fav')
 
+if (localStorage.getItem('theme')) {
+    toggleClass(localStorage.getItem('theme') as 'dark'|'fav'|'light')
+} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    toggleClass('dark')
+} else {
+    toggleClass('light')
+}
 // calculator
 const numbers = document.querySelectorAll<HTMLButtonElement>('.calculator .number')
 numbers.forEach(element => {
