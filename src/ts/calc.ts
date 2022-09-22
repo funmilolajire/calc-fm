@@ -2,7 +2,7 @@ let result:number = 0;
 let numbers: (number|string)[] = [];
 let activeAction: '+'|'-'|'*'|'/'|null = null;
 
-export const action = (action: string) => { 
+export const action = (action: string|null) => { 
     switch (action) {
         case '+':
             return result + Number(numbers.join(''));
@@ -25,16 +25,15 @@ const resultDisplay = document.getElementById("result")
 }
 
 export const onActionClick = (element:HTMLButtonElement) => {
-    result = numbers.length===0 ? result : Number(numbers.join(''))
+    result = result ? Number(action(activeAction)) : Number(numbers.join(''))
+    changeDisplay(result+'')
     numbers = []
     activeAction = element.value as typeof activeAction
-    console.log(result,activeAction,numbers)
 }
 
 export const onNumbersClick = (element: HTMLButtonElement) => {
     numbers.push(element.value !== '.' ? Number(element.value) : '.')
     changeDisplay(numbers.join(''))
-    console.log(result,activeAction,numbers)
 }
 
 export const onDelClick = () => {
@@ -43,10 +42,10 @@ export const onDelClick = () => {
 }
 
 export const onSubmitClick = () => {
-    result = activeAction ? Number(action(activeAction)) : Number(numbers.join(''))
+    result = ((activeAction&&numbers.length>0)||result) ? Number(action(activeAction)) : Number(numbers.join(''))
     numbers = []
+    activeAction = null;
     changeDisplay(result + '')
-    console.log(result,activeAction,numbers)
 }
 
 export const onResetClick = () => {
