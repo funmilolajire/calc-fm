@@ -20,7 +20,7 @@ export const action = (action: string|null) => {
 export const changeDisplay = (display:string) => {
 const resultDisplay = document.getElementById("result")
     if(resultDisplay){
-    resultDisplay.textContent = display||'0'
+    resultDisplay.textContent = Intl.NumberFormat().format(Number(display))||'0'
     }
 }
 
