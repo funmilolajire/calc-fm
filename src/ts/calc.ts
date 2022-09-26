@@ -32,7 +32,11 @@ export const onActionClick = (element:HTMLButtonElement) => {
 }
 
 export const onNumbersClick = (element: HTMLButtonElement) => {
-    numbers.push(element.value !== '.' ? Number(element.value) : '0.')
+    if (element.value === '.' && numbers.length == 0) {
+        numbers.push('0.')
+    }else{
+    numbers.push(element.value !== '.' ? Number(element.value) : '.')
+    }
     changeDisplay(numbers.join(''))
 }
 
