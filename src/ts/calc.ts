@@ -18,21 +18,21 @@ export const action = (action: string|null) => {
 }
 
 export const changeDisplay = (display:string) => {
-const resultDisplay = document.getElementById("result")
+    const resultDisplay = document.getElementById("result")
     if(resultDisplay){
     resultDisplay.textContent = Intl.NumberFormat().format(Number(display))||'0'
     }
 }
 
 export const onActionClick = (element:HTMLButtonElement) => {
-    result = result ? Number(action(activeAction)) : Number(numbers.join(''))
+    result = (result&&numbers.length===0) ? Number(action(activeAction)) : Number(numbers.join(''))
     changeDisplay(result+'')
     numbers = []
     activeAction = element.value as typeof activeAction
 }
 
 export const onNumbersClick = (element: HTMLButtonElement) => {
-    numbers.push(element.value !== '.' ? Number(element.value) : '.')
+    numbers.push(element.value !== '.' ? Number(element.value) : '0.')
     changeDisplay(numbers.join(''))
 }
 
